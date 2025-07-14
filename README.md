@@ -1,2 +1,2 @@
-# Telescopic-OTA-LDO
-Paper need to be downloaded using this LDO circuit
+# Telescopic-OTA-LDO:
+Paper need to be downloaded, complete information inside this.
