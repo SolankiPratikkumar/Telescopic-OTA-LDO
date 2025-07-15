@@ -61,7 +61,7 @@ dominant pole pair has been sufficiently separated or damped, thereby eliminatin
 * In low-dropout regulators (LDOs), supply ripple can propagate to the output through three key routes: the bandgap reference, the error amplifier, and the power transistor. While the LDO typically maintains good power supply rejection (PSR) within its bandwidth, performance degrades at mid-to-high frequencies,primarily due to the power transistor’s influence.
 * To address this, the use of Ahuja compensation, has proven effective in boosting PSR by improving signal path characteristics. In addition, incorporating an R1 and C4
 network creates a ripple voltage at the output that is phase shifted relative to the incoming disturbance, allowing partial cancellation. This zero-pole engineering further enhances PSR.
-* As illustrated in below figure, both simulation and measurement results confirm that the minimum PSR improves from –6.68 dB to –17.95 dB.
+* As illustrated in figure, both simulation and measurement results confirm that the minimum PSR improves from –6.68 dB to –17.95 dB.
 
 ### PSRR comparison with and without Rz and Cz:
 ![8](https://github.com/user-attachments/assets/09fbe589-063c-4076-8157-996e1ed7a4e0)
@@ -70,7 +70,7 @@ network creates a ripple voltage at the output that is phase shifted relative to
 ### Proposed LuT based Design Methodolgy for LDOs:
 * This section presents a device LuT-based design methodology.Transistor sizing based on lookup-tables instead of MOSFET square law brings hand calculations closer to Spice simulations.The detailed design procedure is described below:
 
-### 1) Given: Iload,min,Ibias and Loopgain
+### 1) Given: Iload_min,Ibias and Loopgain
 ### 2) Pass-FET sizing:
 * Assume ( gm/Id ) = 15 and LPass = Lmin (for low area).
 * Use LuT techplots to find (gm*ro) and (Id/W).
