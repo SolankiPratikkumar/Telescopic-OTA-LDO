@@ -75,15 +75,13 @@ network creates a ripple voltage at the output that is phase shifted relative to
 * Assume ( gm/Id ) = 15 and LPass = Lmin (for low area).
 * Use LuT techplots to find (gm*ro) and (Id/W).
 * Calculate pass-FET width by:
-* 
-W5= [ILoad_min/(Id/W)]
-
+* W5= [ILoad_min/(Id/W)]
 * APass ≃ (gm5 ∗ rds5)
 
 ### 3) Calculate OTA Gain:
 
-Calculate Gain Aota as,
-Aota = gm9 (gm1rds1rds2 ∥ gm6rds6rds9)
+* Calculate Gain Aota as,
+* Aota = gm9 (gm1rds1rds2 ∥ gm6rds6rds9)
 
 ### 4) Error Amplifier Design:
 * To calculate Aspect ratio of NMOS (W6,7,8,9/L6,7,8,9) and PMOS (W1,2,3,4/L1,2,3,4).
@@ -92,17 +90,13 @@ Aota = gm9 (gm1rds1rds2 ∥ gm6rds6rds9)
 • Find (gmro)ota by substituting the values of Aldo and (gmro)pass.
 • We will get the lenght from the (gmro)/(gm/Id) techplots of PMOS and NMOS.
 • Now, go to (Id/W) techplot and find (Id/W) at ( gm/Id ) = 15.
-
-Use,W =[(Ibias/2)/(Id/W)]
-
+* Use,W =[(Ibias/2)/(Id/W)]
 * You will get W and this is how you will get your required aspect ratio for each MOSFET in OTA.
 
 ### 5) Current Mirror Design:
 • Assume ( gm/Id ) = 15 and L = Lmax because longer channel length improves accuracy, output resistance,and matching.
 • Now, From (Id/W) techplot of NMOS find,
-
-W =[Ibias/(Id/W)]
-
+* W =[Ibias/(Id/W)]
 * The outlined methodology ensures accurate transistor sizing that aligns well with both analytical calculations and simulation results.
 * The developed design principles are incorporated into a lookup table (LuT)-based transistor sizing framework,which offers scalability across various LDO topologies and technology nodes.
 * This approach, which utilizes technology characterization plots (techplots), provides improved accuracy and practicality compared to traditional square-law-based sizing methods.
