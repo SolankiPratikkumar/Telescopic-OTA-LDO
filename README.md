@@ -20,12 +20,22 @@
 ### Capacitor-less LDO with Ahuja compensation in two paths circuit:
 ![1](https://github.com/user-attachments/assets/4bb1c013-2b4e-4ecc-a3b5-6aba45bb6417)
 
+
 ## Proposed LDO figure:
 
 * The schematic of the proposed LDO is shown in Figure below.The inserted compensation capacitors C1, C2, zero-pole placement Rz and Cz enhance the stability of the LDO. The zero-pole placement eliminants the output voltage ringing.
-  
+
 ### Capacitor-less LDO with dual-path compensation and zero-pole placement circuit:
 ![2](https://github.com/user-attachments/assets/a21d33f3-006c-4dcf-9664-4888e94826e9)
+
+## LUT FOMS and Dimensions of LDO Transistors:
+
+| Transistor     | gm/Id (1/V) | gm·ro (–) | Id/W (A/m) | L (µm) | W (µm)   |
+|----------------|-------------|-----------|------------|--------|----------|
+| M<sub>pass</sub>        | 15          | 10.5      | 9.369      | 0.1    | 213.464  |
+| M<sub>1,2,3,4</sub>     | 15          | 30.866    | 1.29514    | 0.64   | 19.302   |
+| M<sub>6,7,8,9</sub>     | 14.5        | 30.866    | 2.64       | 0.7    | 9.44     |
+| M<sub>10,11,12</sub>    | 14.5        | 30.866    | 0.909      | 0.91   | 55       |
 
 ### Problems in Ahuja Compensation:
 
@@ -85,7 +95,7 @@ network creates a ripple voltage at the output that is phase shifted relative to
 
 ### 4) Error Amplifier Design:
 * To calculate Aspect ratio of NMOS (W6,7,8,9/L6,7,8,9) and PMOS (W1,2,3,4/L1,2,3,4).
-* Overall Gain will be like, Aldo = (gmro)^2_ota · (gmro)pass
+* Overall Gain will be like, Aldo = (gmro)^2_ota x (gmro)pass
 • Assume (gm/Id) = 15, From Aldo find (gmro)pass from techplot.
 • Find (gmro)ota by substituting the values of Aldo and (gmro)pass.
 • We will get the lenght from the (gmro)/(gm/Id) techplots of PMOS and NMOS.
@@ -98,7 +108,7 @@ network creates a ripple voltage at the output that is phase shifted relative to
 • Now, From (Id/W) techplot of NMOS find,
 * W =[Ibias/(Id/W)]
 * The outlined methodology ensures accurate transistor sizing that aligns well with both analytical calculations and simulation results.
-* The developed design principles are incorporated into a lookup table (LuT)-based transistor sizing framework,which offers scalability across various LDO topologies and technology nodes.
+* The developed design principles are incorporated into a lookup table (LuT)-based transistor sizing framework, which offers scalability across various LDO topologies and technology nodes.
 * This approach, which utilizes technology characterization plots (techplots), provides improved accuracy and practicality compared to traditional square-law-based sizing methods.
 
 
