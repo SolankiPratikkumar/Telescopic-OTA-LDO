@@ -25,9 +25,6 @@
 
 * The schematic of the proposed LDO is shown in Figure below.The inserted compensation capacitors C1, C2, zero-pole placement Rz and Cz enhance the stability of the LDO. The zero-pole placement eliminants the output voltage ringing.
 
-### Capacitor-less LDO with dual-path compensation and zero-pole placement circuit:
-![2](https://github.com/user-attachments/assets/a21d33f3-006c-4dcf-9664-4888e94826e9)
-
 ## LUT FOMS and Dimensions of LDO Transistors:
 
 | Transistor     | gm/Id (1/V) | gm·ro (–) | Id/W (A/m) | L (µm) | W (µm)   |
@@ -36,6 +33,10 @@
 | M<sub>1,2,3,4</sub>     | 15          | 30.866    | 1.29514    | 0.64   | 19.302   |
 | M<sub>6,7,8,9</sub>     | 14.5        | 30.866    | 2.64       | 0.7    | 9.44     |
 | M<sub>10,11,12</sub>    | 14.5        | 30.866    | 0.909      | 0.91   | 55       |
+
+
+### Capacitor-less LDO with dual-path compensation and zero-pole placement circuit:
+![2](https://github.com/user-attachments/assets/a21d33f3-006c-4dcf-9664-4888e94826e9)
 
 ### Problems in Ahuja Compensation:
 
@@ -78,10 +79,12 @@ network creates a ripple voltage at the output that is phase shifted relative to
 
 
 ### Proposed LuT based Design Methodolgy for LDOs:
+
 * This section presents a device LuT-based design methodology.Transistor sizing based on lookup-tables instead of MOSFET square law brings hand calculations closer to Spice simulations.The detailed design procedure is described below:
 
 ### 1) Given: Iload_min,Ibias and Loopgain
 ### 2) Pass-FET sizing:
+
 * Assume ( gm/Id ) = 15 and LPass = Lmin (for low area).
 * Use LuT techplots to find (gm*ro) and (Id/W).
 * Calculate pass-FET width by:
@@ -94,16 +97,18 @@ network creates a ripple voltage at the output that is phase shifted relative to
 * Aota = gm9 (gm1rds1rds2 ∥ gm6rds6rds9)
 
 ### 4) Error Amplifier Design:
+
 * To calculate Aspect ratio of NMOS (W6,7,8,9/L6,7,8,9) and PMOS (W1,2,3,4/L1,2,3,4).
 * Overall Gain will be like, Aldo = (gmro)^2_ota x (gmro)pass
-• Assume (gm/Id) = 15, From Aldo find (gmro)pass from techplot.
-• Find (gmro)ota by substituting the values of Aldo and (gmro)pass.
-• We will get the lenght from the (gmro)/(gm/Id) techplots of PMOS and NMOS.
-• Now, go to (Id/W) techplot and find (Id/W) at ( gm/Id ) = 15.
+* Assume (gm/Id) = 15, From Aldo find (gmro)pass from techplot.
+* Find (gmro)ota by substituting the values of Aldo and (gmro)pass.
+* We will get the lenght from the (gmro)/(gm/Id) techplots of PMOS and NMOS.
+* Now, go to (Id/W) techplot and find (Id/W) at ( gm/Id ) = 15.
 * Use,W =[(Ibias/2)/(Id/W)]
 * You will get W and this is how you will get your required aspect ratio for each MOSFET in OTA.
 
 ### 5) Current Mirror Design:
+
 • Assume ( gm/Id ) = 15 and L = Lmax because longer channel length improves accuracy, output resistance,and matching.
 • Now, From (Id/W) techplot of NMOS find,
 * W =[Ibias/(Id/W)]
@@ -141,4 +146,5 @@ network creates a ripple voltage at the output that is phase shifted relative to
 
 ## Conclusion:
 
-The proposed capacitor-less LDO, implemented with dual-path Ahuja compensation, demonstrates excellent transient response, robust PSR, and high stability without relying on large off-chip capacitors. Using 90nm CMOS and maintaining performance under rapid load transients and wide frequency ranges, this design proves highly suitable for modern SoC and low-power mixed-signal applications requiring fast, reliable on-chip voltage regulation.
+* The proposed capacitor-less LDO, implemented with dual-path Ahuja compensation, demonstrates excellent transient response, robust PSR, and high stability without relying on large off-chip capacitors. 
+* Using 90nm CMOS and maintaining performance under rapid load transients and wide frequency ranges, this design proves highly suitable for modern SoC and low-power mixed-signal applications requiring fast, reliable on-chip voltage regulation.
